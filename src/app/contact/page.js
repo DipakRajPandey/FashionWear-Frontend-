@@ -1,3 +1,4 @@
+import Contact from '@/components/Home/Contact';
 import React from 'react'
 export const metadata = {
   title: "Contacts",
@@ -5,9 +6,7 @@ export const metadata = {
 };
 const ContactPage=()=> {
   return (
-    <div>
-      this is contact page 
-    </div>
+    <><Contact/></>
   )
 }
 export default  ContactPage
