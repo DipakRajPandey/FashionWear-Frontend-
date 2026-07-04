@@ -1,6 +1,7 @@
 "use client";
 
-import { resetPassword } from "@/api/auth";
+
+import { resetPassword } from "@/api/authapi";
 import PasswordInput from "@/components/PasswordInput";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";

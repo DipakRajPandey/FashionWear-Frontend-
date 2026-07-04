@@ -36,7 +36,9 @@ export const PayViaStripe = async (id) => {
 export const confirmOrder = async (id, status) => {
   return await api.put(`/api/order/${id}/confirm`, { status: status });
 };
-
+export const updateOrderStatus = async (id, status) => {
+  return await api.put(`/api/order/${id}/status`, { status: status });
+};
 export const getOrdersByMerchant=async()=>{
   return await api.get("/api/order/merchant")
 

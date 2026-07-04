@@ -1,7 +1,7 @@
 "use client";
-import { getOrdersById, updateOrderStatus } from "@/api/orders";
-import OrderTable from "@/app/(private)/(customer)/orders/_component/OrderTable";
-import OrderStatus from "@/components/orders/OrderStatus";
+
+
+
 import {
   ORDER_CANCELLED,
   ORDER_CONFIRMED,
@@ -10,12 +10,16 @@ import {
   ORDER_SHIPPED,
 } from "@/constants/orderStatus";
 import { HOME_ROUTE, PRODUCTS_ROUTE } from "@/constants/routes";
-import { ROLE_ADMIN } from "@/constants/userRoles";
+
 import useAuthStore from "@/stores/authStore";
 import { format } from "date-fns";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import OrdersTable from "../../_components/Table";
+import OrderStatus from "@/components/order/OrderStatus";
+import { ROLE_ADMIN } from "@/constants/roles";
+import { getOrdersById, updateOrderStatus } from "@/api/orders";
 
 const UpdateOrderPage = () => {
   const [order, setOrder] = useState(null);
@@ -63,7 +67,8 @@ const UpdateOrderPage = () => {
       <p>
         Status: <OrderStatus status={status} />
       </p>
-      <OrderTable order={order} />
+
+      <OrdersTable order={order}/>
 
       <form className="flex items-center gap-4" onSubmit={updateStatus}>
         <select

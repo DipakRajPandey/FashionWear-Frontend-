@@ -1,6 +1,5 @@
 "use client";
 
-import { confirmOrder, payViaStripe } from "@/api/orders";
 import config from "@/config";
 import { ORDERS_ROUTE } from "@/constants/routes";
 import {
@@ -18,6 +17,7 @@ import { FaDollarSign } from "react-icons/fa6";
 import { toast } from "react-toastify";
 import stripeLogo from "@/assets/images/stripe.png";
 import Spinner from "@/components/Spinner";
+import { confirmOrder, PayViaStripe } from "@/api/orders";
 
 const CheckoutForm = ({ orderId }) => {
   const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ const CheckoutForm = ({ orderId }) => {
     setLoading(true);
 
     try {
-      const response = await payViaStripe(orderId);
+      const response = await PayViaStripe(orderId);
 
       const clientSecret = response.data.client_secret;
 
